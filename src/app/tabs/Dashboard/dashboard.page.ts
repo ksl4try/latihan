@@ -1,18 +1,62 @@
-import { Component } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular/standalone';
-// Impor ExploreContainerComponent dengan path yang benar
+import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
+import {
+  IonHeader,
+  IonToolbar,
+  IonTitle,
+  IonContent,
+  IonButton,
+  IonCard,
+  IonCardContent,
+  IonItem,
+  IonLabel,
+  IonIcon,
+} from '@ionic/angular/standalone';
 import { ExploreContainerComponent } from '../../explore-container/explore-container.component';
 
+import { addIcons } from 'ionicons';
+import { people } from 'ionicons/icons';
+
+import { Auth } from 'src/app/services/auth.service'; // ✅ pakai Auth
+
 @Component({
-  selector: 'app-dashboard', // Ganti selector agar lebih sesuai
-  // PERBAIKI INI: Arahkan ke file HTML yang benar
-  templateUrl: 'dashboard.page.html', 
-  // PERBAIKI INI: Hapus referensi ke file SCSS yang tidak ada
-  // styleUrls: ['dashboard.page.scss'], 
-  standalone: true, // Pastikan komponen ini standalone
-  // Tambahkan ExploreContainerComponent ke dalam imports
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, ExploreContainerComponent],
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.page.html',
+  styleUrls: ['./dashboard.page.scss'],
+  standalone: true,
+  imports: [
+    IonHeader,
+    IonCardContent,
+    IonCard,
+    IonItem,
+    IonLabel,
+    IonToolbar,
+    IonTitle,
+    IonContent,
+    IonButton,
+    IonIcon,
+    ExploreContainerComponent,
+  ],
 })
-export class Tab1Page {
-  constructor() {}
+export class DashboardPage implements OnInit {
+  user: any = null;
+
+  constructor(private navCtrl: NavController, private auth: Auth) {
+    addIcons({ people });
+  }
+
+  ionViewWillEnter() {
+    if (this.auth.isAuthenticated()) {
+      this.user = this.auth.getUser();
+    } else {
+      console.log('Token expired atau belum login, redirect ke login.');
+      this.navCtrl.navigateRoot('/login');
+    }
+  }
+
+  ngOnInit() {}
+
+  listData() {
+    this.navCtrl.navigateForward('/karyawan-list');
+  }
 }

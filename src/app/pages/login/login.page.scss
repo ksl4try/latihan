@@ -1,0 +1,90 @@
+/* Background full di ion-content */
+.login-screen {
+  --background: none;
+  background: url('/assets/login/bg.png') center center / cover no-repeat fixed;
+  min-height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+/* Hero: hanya untuk posisi logo */
+.hero {
+  position: relative;
+  height: 44vh;
+  min-height: 260px;
+  display: block;
+}
+.hero-bg {
+  display: none;
+}
+.hero-logo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(196px, 38%, 180px);
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.35));
+}
+
+/* Card putih menumpuk di bawah hero */
+.auth-card {
+  position: relative;
+  top: -22px;
+  margin: 0 14px 24px;
+  backdrop-filter: blur(2px);
+  border-radius: 12px;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25);
+}
+
+/* Style judul, input, tombol */
+.title {
+  text-align: center;
+  color: #15803d;
+  font-weight: 800;
+}
+.rounded {
+  --border-radius: 10px;
+  border-radius: 10px;
+  --padding-start: 12px;
+  --inner-padding-end: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+.btn-login {
+  --background: #0b4f2c;
+  --background-activated: #0a4527;
+  --border-radius: 10px;
+  height: 48px;
+  font-weight: 800;
+}
+.divider {
+  height: 1px;
+  background: #ddd;
+  margin: 18px 0 8px;
+}
+.muted {
+  text-align: center;
+  color: #666;
+  margin: 0 0 12px;
+}
+
+/* Ikon sosial */
+.social-row {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+.social-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  object-fit: contain;
+  padding: 6px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+  background: #fff;
+}
+.social-btn.x {
+  background: #000;
+}
+.social-btn.fb {
+  background: #1877f2;
+}

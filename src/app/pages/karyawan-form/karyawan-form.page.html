@@ -1,0 +1,49 @@
+<ion-header class="header">
+  <ion-toolbar class="t-header">
+    <ion-buttons slot="start" (click)="goBack()">
+      <ion-button fill="clear">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title style="margin-left: 50px">{{ title }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-card style="box-shadow: none">
+    <ion-card-content>
+      <ion-item
+        style="border: solid black 1px; border-radius: 15px"
+        class="ion-margin-bottom"
+      >
+        <ion-input [(ngModel)]="nama" placeholder="Masukkan nama"></ion-input>
+      </ion-item>
+
+      <ion-item
+        style="border: solid black 1px; border-radius: 15px"
+        class="ion-margin-bottom"
+      >
+        <ion-input
+          [(ngModel)]="email"
+          type="email"
+          placeholder="Masukkan email"
+        ></ion-input>
+      </ion-item>
+
+      <ion-button
+        style="
+          margin-top: 50px;
+          color: white;
+          --background: #4caf50;
+          text-transform: none;
+        "
+        expand="block"
+        class="ion-margin-top"
+        (click)="simpanKaryawan()"
+      >
+        SIMPAN
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

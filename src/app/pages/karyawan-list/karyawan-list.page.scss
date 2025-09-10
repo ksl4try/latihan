@@ -11,10 +11,14 @@
   padding: 10px;
 }
 
+.content {
+  padding: 10px;
+}
+
 .card-center {
   display: flex;
   align-items: center; /* vertikal tengah */
-  justify-content: center; /* horizontal tengah */
+
   gap: 12px; /* jarak antara ikon & teks */
   padding: 10px;
   text-align: center;
@@ -24,4 +28,14 @@
   margin: 0;
   font-size: 18px;
   font-weight: bold;
+}
+
+.fab-custom {
+  margin-bottom: 10px; /* Naik 10px */
+  margin-right: 10px;
+}
+
+.fab-custom ion-fab-button {
+  --background: #28a745; /* hijau */
+  --color: #fff; /* ikon putih */
 }
