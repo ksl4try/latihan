@@ -19,6 +19,11 @@ import { people } from 'ionicons/icons';
 
 import { Auth } from 'src/app/services/auth.service'; // ✅ pakai Auth
 
+// Halaman Dashboard (standalone component):
+// - Menampilkan kartu navigasi ke daftar karyawan.
+// - Proteksi halaman: cek login via Auth.isAuthenticated(); jika tidak valid, redirect ke '/login'.
+// - Koneksi navigasi:
+//   - Klik kartu "Daftar Karyawan" -> '/karyawan-list'
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.page.html',
@@ -28,23 +33,25 @@ import { Auth } from 'src/app/services/auth.service'; // ✅ pakai Auth
     IonHeader,
     IonCardContent,
     IonCard,
-    IonItem,
-    IonLabel,
+    // IonItem,
+    // IonLabel,
     IonToolbar,
     IonTitle,
     IonContent,
-    IonButton,
+    // IonButton,
     IonIcon,
-    ExploreContainerComponent,
+    // ExploreContainerComponent,
   ],
 })
 export class DashboardPage implements OnInit {
   user: any = null;
 
   constructor(private navCtrl: NavController, private auth: Auth) {
+    // Registrasi ikon yang dipakai di template (ikon people)
     addIcons({ people });
   }
 
+  // Lifecycle Ionic: guard login + set info user jika valid.
   ionViewWillEnter() {
     if (this.auth.isAuthenticated()) {
       this.user = this.auth.getUser();
@@ -56,6 +63,7 @@ export class DashboardPage implements OnInit {
 
   ngOnInit() {}
 
+  // Navigasi ke halaman daftar karyawan.
   listData() {
     this.navCtrl.navigateForward('/karyawan-list');
   }

@@ -1,5 +1,7 @@
+<!-- Header: tombol kembali, edit, hapus -->
 <ion-header class="header">
   <ion-toolbar class="t-header">
+    <!-- Kembali ke daftar karyawan -->
     <ion-buttons slot="start" (click)="goBack()">
       <ion-button fill="clear">
         <ion-icon name="chevron-back-outline"></ion-icon>
@@ -7,12 +9,14 @@
     </ion-buttons>
     <ion-title style="margin-left: 0px">Detail Karyawan</ion-title>
 
+    <!-- Edit data karyawan (navigasi ke /karyawan-form/:id) -->
     <ion-buttons slot="end" (click)="goEdit()">
       <ion-button fill="clear">
         <ion-icon name="create"></ion-icon>
       </ion-button>
     </ion-buttons>
 
+    <!-- Hapus karyawan dari localStorage, lalu kembali ke list -->
     <ion-buttons slot="end" (click)="goDelete()">
       <ion-button fill="clear">
         <ion-icon name="trash"></ion-icon>
@@ -22,9 +26,11 @@
 </ion-header>
 
 <ion-content>
-  <div class="content" *ngIf="karyawan">
+  <!-- Tampilkan saat data karyawan berhasil dimuat berdasarkan param 'id' -->
+  <div class="content" [hidden]="karyawan">
     <ion-card>
       <ion-card-content style="flex-direction: column; text-align: center">
+        <!-- Ikon profil sebagai placeholder avatar -->
         <ion-icon name="person" size="large"></ion-icon>
         <h2 style="font-weight: bold; margin-top: 10px">{{ karyawan.nama }}</h2>
         <p>{{ karyawan.email }}</p>

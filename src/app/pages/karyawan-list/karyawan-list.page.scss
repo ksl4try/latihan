@@ -1,12 +1,15 @@
+/* Gaya halaman list karyawan */
 .header {
   box-shadow: none;
 }
 
+/* Warna tema header (hijau) */
 .t-header {
   --background: #4caf50;
   --color: white;
 }
 
+/* Padding konten */
 .content {
   padding: 10px;
 }
@@ -15,6 +18,7 @@
   padding: 10px;
 }
 
+/* Layout item list: ikon + nama */
 .card-center {
   display: flex;
   align-items: center; /* vertikal tengah */
@@ -30,11 +34,13 @@
   font-weight: bold;
 }
 
+/* Posisi tombol tambah (FAB) */
 .fab-custom {
   margin-bottom: 10px; /* Naik 10px */
   margin-right: 10px;
 }
 
+/* Warna FAB */
 .fab-custom ion-fab-button {
   --background: #28a745; /* hijau */
   --color: #fff; /* ikon putih */

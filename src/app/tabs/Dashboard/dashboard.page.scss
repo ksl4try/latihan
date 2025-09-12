@@ -1,16 +1,20 @@
+/* Gaya header Dashboard */
 .header {
   box-shadow: none;
 }
 
+/* Warna tema header (hijau) */
 .t-header {
   --background: #4caf50;
   --color: white;
 }
 
+/* Padding konten */
 .content {
   padding: 10px;
 }
 
+/* Layout kartu tengah: ikon + judul */
 .card-center {
   display: flex;
   align-items: center; /* vertikal tengah */

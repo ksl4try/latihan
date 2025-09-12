@@ -1,5 +1,7 @@
+<!-- Header: tombol kembali dan judul dinamis (Tambah/Edit) -->
 <ion-header class="header">
   <ion-toolbar class="t-header">
+    <!-- Kembali ke daftar karyawan -->
     <ion-buttons slot="start" (click)="goBack()">
       <ion-button fill="clear">
         <ion-icon name="chevron-back-outline"></ion-icon>
@@ -11,8 +13,10 @@
 
 
 <ion-content>
+  <!-- Kontainer form -->
   <ion-card style="box-shadow: none">
     <ion-card-content>
+      <!-- Input Nama -->
       <ion-item
         style="border: solid black 1px; border-radius: 15px"
         class="ion-margin-bottom"
@@ -20,6 +24,7 @@
         <ion-input [(ngModel)]="nama" placeholder="Masukkan nama"></ion-input>
       </ion-item>
 
+      <!-- Input Email -->
       <ion-item
         style="border: solid black 1px; border-radius: 15px"
         class="ion-margin-bottom"
@@ -31,6 +36,7 @@
         ></ion-input>
       </ion-item>
 
+      <!-- Tombol simpan: trigger simpanKaryawan() -->
       <ion-button
         style="
           margin-top: 50px;

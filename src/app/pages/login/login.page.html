@@ -1,5 +1,7 @@
+<!-- Halaman Login: background + card form login -->
 <ion-content fullscreen class="login-screen">
   <!-- Bagian hero: background + logo -->
+  <!-- Bagian hero dengan logo -->
   <div class="hero">
     <div class="hero-bg"></div>
     <ion-img src="assets/login/st.png" alt="logo" class="hero-logo"></ion-img>
@@ -12,12 +14,14 @@
     </ion-card-header>
 
     <ion-card-content>
+      <!-- Input Email -->
       <ion-item class="rounded">
         <ion-icon slot="start" name="mail-outline"></ion-icon>
         <ion-label position="stacked">Email</ion-label>
         <ion-input [(ngModel)]="email" placeholder="Email"></ion-input>
       </ion-item>
 
+      <!-- Input Password -->
       <ion-item class="rounded ion-margin-top">
         <ion-icon slot="start" name="lock-closed-outline"></ion-icon>
         <ion-label position="stacked">Password</ion-label>
@@ -28,6 +32,7 @@
         ></ion-input>
       </ion-item>
 
+      <!-- Tombol Login; aktif jika email valid & password terisi -->
       <ion-button
         (click)="login()"
         expand="block"
@@ -40,6 +45,7 @@
       <div class="divider"></div>
       <p class="muted">Atau login menggunakan:</p>
 
+      <!-- Tombol sosial (dekoratif) -->
       <div class="social-row">
         <img src="/assets/login/x.png" alt="X" class="social-btn x" />
         <img src="/assets/login/facebook.png" alt="Facebook" class="social-btn fb" />

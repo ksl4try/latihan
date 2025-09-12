@@ -1,12 +1,15 @@
+/* Gaya halaman form karyawan */
 .header {
   box-shadow: none;
 }
 
+/* Warna tema header (hijau) */
 .t-header {
   --background: #4caf50;
   --color: white;
 }
 
+/* Padding konten */
 .content {
   padding: 10px;
 }
@@ -15,6 +18,7 @@
   padding: 10px;
 }
 
+/* Layout untuk avatar + teks di tengah */
 .card-center {
   display: flex;
   align-items: center; /* vertikal tengah */
