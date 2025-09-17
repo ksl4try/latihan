@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+﻿import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {
@@ -58,6 +58,16 @@ export class KaryawanDetailPage implements OnInit {
     addIcons({ chevronBackOutline, person, trash, create });
   }
 
+  // Lepas fokus tombol sebelum halaman ini disembunyikan agar tidak melanggar aturan aria-hidden.
+  private clearActiveFocus(): void {
+    if (typeof document === 'undefined') return;
+
+    const activeElement = document.activeElement as HTMLElement | null;
+    if (activeElement && typeof activeElement.blur === 'function') {
+      activeElement.blur();
+    }
+  }
+
   // Lifecycle Angular: ambil parameter 'id' dan load data karyawan dari localStorage.
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
@@ -80,14 +90,17 @@ export class KaryawanDetailPage implements OnInit {
 
   // Kembali ke daftar karyawan.
   goBack() {
+    this.clearActiveFocus(); // Blur tombol agar halaman tersembunyi tidak menyisakan fokus.
     this.navCtrl.navigateBack('/karyawan-list');
   }
 
-  // 🔹 Fungsi delete karyawan
+  // ðŸ”¹ Fungsi delete karyawan
   // Hapus entri karyawan dari localStorage berdasarkan id, lalu kembali ke list.
   // Dipicu dari tombol trash di header (lihat HTML).
   goDelete() {
     if (!this.karyawan) return;
+
+    this.clearActiveFocus(); // Lepas fokus tombol sebelum proses hapus dan navigasi.
 
     const data = localStorage.getItem('karyawan');
     let list = data ? JSON.parse(data) : [];
@@ -107,7 +120,15 @@ export class KaryawanDetailPage implements OnInit {
   // Arahkan ke halaman form untuk mengedit data karyawan saat ini.
   goEdit() {
     if (this.karyawan) {
+      this.clearActiveFocus(); // Pastikan fokus tidak tertahan di halaman detail.
       this.navCtrl.navigateForward(`/karyawan-form/${this.karyawan.id}`);
     }
   }
 }
+
+
+
+
+
+
+
