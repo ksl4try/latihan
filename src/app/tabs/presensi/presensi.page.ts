@@ -1,19 +1,20 @@
-import { Component } from '@angular/core';
+﻿import { Component } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular/standalone';
 // PERBAIKI INI: Path harus naik satu level ke direktori 'app'
 import { ExploreContainerComponent } from '../../explore-container/explore-container.component';
 
-import { Auth } from 'src/app/services/auth.service'; // ✅ pakai Auth
+import { Auth } from 'src/app/services/auth.service'; // Pakai Auth
 import { NavController } from '@ionic/angular';
 
+// Tab Presensi: hasil rename dari tab2 agar lebih relevan dengan fitur.
 @Component({
-  selector: 'app-tab2',
-  templateUrl: 'tab2.page.html',
-  styleUrls: ['tab2.page.scss'],
+  selector: 'app-presensi',
+  templateUrl: 'presensi.page.html',
+  styleUrls: ['presensi.page.scss'],
   standalone: true,
   imports: [IonHeader, IonToolbar, IonTitle, IonContent, ExploreContainerComponent]
 })
-export class Tab2Page {
+export class PresensiPage {
 
   user: any = null;
   constructor(private navCtrl: NavController, private auth: Auth) {}
@@ -27,3 +28,9 @@ export class Tab2Page {
     }
   }
 }
+
+
+
+
+
+

@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+﻿import { Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
 
 export const routes: Routes = [
@@ -12,8 +12,9 @@ export const routes: Routes = [
           import('./dashboard/dashboard.page').then((m) => m.DashboardPage),
       },
       {
-        path: 'tab2',
-        loadComponent: () => import('./tab2/tab2.page').then((m) => m.Tab2Page),
+        path: 'presensi',
+        loadComponent: () =>
+          import('./presensi/presensi.page').then((m) => m.PresensiPage), // Tab Presensi
       },
       {
         path: 'tab3',
@@ -27,3 +28,7 @@ export const routes: Routes = [
     ],
   },
 ];
+
+
+
+
