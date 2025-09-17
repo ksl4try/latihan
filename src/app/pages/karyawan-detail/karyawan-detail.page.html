@@ -27,7 +27,7 @@
 
 <ion-content>
   <!-- Tampilkan saat data karyawan berhasil dimuat berdasarkan param 'id' -->
-  <div class="content" [hidden]="karyawan">
+  <div class="content" *ngIf="karyawan">
     <ion-card>
       <ion-card-content style="flex-direction: column; text-align: center">
         <!-- Ikon profil sebagai placeholder avatar -->

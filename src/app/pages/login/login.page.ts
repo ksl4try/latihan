@@ -7,16 +7,15 @@ import {
   IonCardContent,
   IonItem,
   IonLabel,
-  IonInput,
+  // IonInput,
   IonButton,
   IonImg,
   IonIcon,
-  IonText,
   NavController,
 } from '@ionic/angular/standalone';
 import { FormsModule } from '@angular/forms';
 import { addIcons } from 'ionicons';
-import { mailOutline, lockClosedOutline } from 'ionicons/icons';
+import { mailOutline, lockClosedOutline, eyeOutline, eyeOffOutline } from 'ionicons/icons';
 import { Auth } from 'src/app/services/auth.service';
 
 // Halaman Login (standalone component):
@@ -37,7 +36,7 @@ import { Auth } from 'src/app/services/auth.service';
     IonCardContent,
     IonItem,
     IonLabel,
-    IonInput,
+    // IonInput,
     IonButton,
     IonImg,
     IonIcon,
@@ -49,16 +48,23 @@ export class LoginPage {
   // State form: di-bind via [(ngModel)] pada template.
   email = '';
   password = '';
+  // isPasswordVisible mengendalikan tipe input (password/text) agar mata bisa toggle.
+  isPasswordVisible = false;
 
   constructor(private navCtrl: NavController, private auth: Auth) {
-    // Registrasi ikon yang dipakai di form login (email & password)
-    addIcons({ mailOutline, lockClosedOutline });
+    // Registrasi ikon form login (mail, lock, serta mata untuk toggle password)
+    addIcons({ mailOutline, lockClosedOutline, eyeOutline, eyeOffOutline });
   }
 
   // Validasi sederhana format email (untuk enable/disable tombol Login).
   isValidEmail(): boolean {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(this.email);
+  }
+
+  // togglePasswordVisibility membalik boolean agar icon mata dapat menampilkan/menyembunyikan password.
+  togglePasswordVisibility(): void {
+    this.isPasswordVisible = !this.isPasswordVisible;
   }
 
   // Aksi login:

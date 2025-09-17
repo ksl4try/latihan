@@ -88,3 +88,79 @@
 .social-btn.fb {
   background: #1877f2;
 }
+
+/* Pastikan input native tampil tema terang dan tetap putih */
+.login-screen,
+.auth-card,
+.auth-card form {
+  color-scheme: light; /* Cegah auto-dark bawaan browser pada kontrol native */
+}
+
+.auth-card ion-item {
+  --background: #fff; /* Pertahankan latar belakang ion-item tetap putih */
+  --color: #000;      /* Warna teks di dalam ion-item */
+}
+
+.auth-card ion-item input {
+  width: 100%;
+  background-color: transparent; /* Tampilkan putih dari ion-item/card */
+  color: #000;
+  caret-color: #000;
+  font: inherit;
+  padding: 10px 0;
+  border: 0;
+  outline: none;
+}
+
+.auth-card ion-item input::placeholder {
+  color: #777;
+}
+
+/* Samakan latar autofill (gelap/kuning) menjadi putih */
+.auth-card ion-item input:-webkit-autofill,
+.auth-card ion-item input:-webkit-autofill:hover,
+.auth-card ion-item input:-webkit-autofill:focus,
+.auth-card ion-item input:-webkit-autofill:active {
+  -webkit-text-fill-color: #000;
+  box-shadow: 0 0 0px 1000px #fff inset;
+  transition: background-color 9999s ease-in-out 0s;
+}
+/* Tombol toggle password: minimalkan padding agar ikon rata kanan rapi */
+.auth-card ion-item .toggle-password {
+  --padding-start: 0;
+  --padding-end: 0;
+  --color: #808080;
+  min-width: 40px;
+}
+
+.auth-card ion-item .toggle-password ion-icon {
+  font-size: 1.2rem;
+}
+/* BEGIN change: posisi ikon mata sejajar dengan placeholder */
+.auth-card ion-item.password-item .input-wrapper {
+  position: relative;
+  width: 100%;
+  display: block;
+}
+
+/* Tambah ruang di kanan agar teks tidak ketumpuk ikon */
+.auth-card ion-item.password-item .input-wrapper input {
+  padding-right: 44px;
+}
+
+/* Posisikan tombol mata tepat di kanan, sejajar secara vertikal dengan baris input */
+.auth-card ion-item.password-item .toggle-password.overlay {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  --padding-start: 6px;
+  --padding-end: 6px;
+  height: 36px;
+  z-index: 1;
+}
+
+.auth-card ion-item.password-item .toggle-password.overlay ion-icon {
+  font-size: 1.2rem;
+}
+/* END change */

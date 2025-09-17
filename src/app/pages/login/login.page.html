@@ -7,40 +7,69 @@
     <ion-img src="assets/login/st.png" alt="logo" class="hero-logo"></ion-img>
   </div>
 
-  <!-- Card putih yang “menumpuk” ke hero -->
+  <!-- Card putih yang menumpuk ke hero -->
   <ion-card class="auth-card">
     <ion-card-header>
       <ion-card-title class="title">Selamat Datang!</ion-card-title>
     </ion-card-header>
 
     <ion-card-content>
-      <!-- Input Email -->
-      <ion-item class="rounded">
-        <ion-icon slot="start" name="mail-outline"></ion-icon>
-        <ion-label position="stacked">Email</ion-label>
-        <ion-input [(ngModel)]="email" placeholder="Email"></ion-input>
-      </ion-item>
+      <form (ngSubmit)="login()" autocomplete="on">
+        <!-- Input Email (input native) -->
+        <ion-item class="rounded">
+          <ion-icon slot="start" name="mail-outline"></ion-icon>
+          <ion-label position="stacked">Email</ion-label>
+          <input
+            type="email"
+            name="email"
+            [(ngModel)]="email"
+            required
+            placeholder="Email"
+            autocomplete="email"
+          />
+        </ion-item>
 
-      <!-- Input Password -->
-      <ion-item class="rounded ion-margin-top">
-        <ion-icon slot="start" name="lock-closed-outline"></ion-icon>
-        <ion-label position="stacked">Password</ion-label>
-        <ion-input
-          [(ngModel)]="password"
-          type="password"
-          placeholder="Password"
-        ></ion-input>
-      </ion-item>
+        <!-- Input Password (input native) -->
+        <ion-item class="rounded ion-margin-top password-item">
+          <ion-icon slot="start" name="lock-closed-outline"></ion-icon>
+          <ion-label position="stacked">Password</ion-label>
+          <!-- BEGIN change: sejajarkan ikon mata dengan placeholder menggunakan wrapper absolut -->
+          <div class="input-wrapper">
+            <input
+              [type]="isPasswordVisible ? 'text' : 'password'"
+              name="password"
+              [(ngModel)]="password"
+              required
+              placeholder="Password"
+              autocomplete="current-password"
+            />
+            <ion-button
+              type="button"
+              fill="clear"
+              size="small"
+              class="toggle-password overlay"
+              (click)="togglePasswordVisibility()"
+              aria-label="Tampilkan atau sembunyikan password"
+            >
+              <ion-icon
+                slot="icon-only"
+                [name]="isPasswordVisible ? 'eye-off-outline' : 'eye-outline'"
+              ></ion-icon>
+            </ion-button>
+          </div>
+          <!-- END change -->
+        </ion-item>
 
-      <!-- Tombol Login; aktif jika email valid & password terisi -->
-      <ion-button
-        (click)="login()"
-        expand="block"
-        class="btn-login ion-margin-top"
-        [disabled]="!(isValidEmail() && password)"
-      >
-        Login
-      </ion-button>
+        <!-- Tombol Login; aktif jika email valid & password terisi -->
+        <ion-button
+          type="submit"
+          expand="block"
+          class="btn-login ion-margin-top"
+          [disabled]="!(isValidEmail() && password)"
+        >
+          Login
+        </ion-button>
+      </form>
 
       <div class="divider"></div>
       <p class="muted">Atau login menggunakan:</p>
@@ -54,3 +83,5 @@
     </ion-card-content>
   </ion-card>
 </ion-content>
+
+
