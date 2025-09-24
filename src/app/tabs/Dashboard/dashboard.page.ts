@@ -15,15 +15,16 @@ import {
 import { ExploreContainerComponent } from '../../explore-container/explore-container.component';
 
 import { addIcons } from 'ionicons';
-import { people } from 'ionicons/icons';
+import { people, listOutline } from 'ionicons/icons';
 
 import { Auth } from 'src/app/services/auth.service'; // ✅ pakai Auth
 
 // Halaman Dashboard (standalone component):
-// - Menampilkan kartu navigasi ke daftar karyawan.
+// - Menampilkan kartu navigasi ke daftar karyawan & log presensi.
 // - Proteksi halaman: cek login via Auth.isAuthenticated(); jika tidak valid, redirect ke '/login'.
 // - Koneksi navigasi:
 //   - Klik kartu "Daftar Karyawan" -> '/karyawan-list'
+//   - Klik kartu "Log Presensi" -> '/log-presensi'
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.page.html',
@@ -47,8 +48,8 @@ export class DashboardPage implements OnInit {
   user: any = null;
 
   constructor(private navCtrl: NavController, private auth: Auth) {
-    // Registrasi ikon yang dipakai di template (ikon people)
-    addIcons({ people });
+    // Registrasi ikon yang dipakai di template (ikon people + log presensi)
+    addIcons({ people, listOutline });
   }
 
   // Lifecycle Ionic: guard login + set info user jika valid.
@@ -67,4 +68,11 @@ export class DashboardPage implements OnInit {
   listData() {
     this.navCtrl.navigateForward('/karyawan-list');
   }
+
+  logPresensi() {
+    this.navCtrl.navigateForward('/log-presensi');
+  }
 }
+
+
+

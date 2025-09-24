@@ -1,0 +1,21 @@
+/* Gaya header log presensi */
+.header {
+  box-shadow: none;
+}
+
+/* Warna tema header sama dengan dashboard */
+.t-header {
+  --background: #4caf50;
+  --color: white;
+}
+
+/* Padding konten */
+.content {
+  padding: 10px;
+}
+
+.empty-state {
+  text-align: center;
+  color: #666;
+  margin-top: 32px;
+}

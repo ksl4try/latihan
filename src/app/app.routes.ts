@@ -46,4 +46,12 @@ export const routes: Routes = [
         (m) => m.KaryawanFormPage
       ),
   },
+  {
+    path: 'log-presensi',
+    loadComponent: () => import('./pages/log-presensi/log-presensi.page').then( m => m.LogPresensiPage)
+  },
+  {
+    path: 'edit-profile',
+    loadComponent: () => import('./pages/edit-profile/edit-profile.page').then( m => m.EditProfilePage)
+  },
 ];

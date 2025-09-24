@@ -1,3 +1,4 @@
+<!-- Header pengaturan: menampilkan judul + konsisten dengan tema hijau aplikasi -->
 <ion-header class="header">
   <ion-toolbar class="t-header">
     <ion-title class="ion-text-center">
@@ -13,5 +14,13 @@
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Pengaturan"></app-explore-container>
+  <div class="content">
+    <!-- Kartu aksi untuk membuka halaman edit profil -->
+    <ion-card (click)="editProfile()">
+      <ion-card-content class="card-center">
+        <ion-icon class="card-icon" name="person-circle-outline" size="large"></ion-icon>
+        <h2 class="card-label">Edit Profile</h2>
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>
