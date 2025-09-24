@@ -1,4 +1,4 @@
-﻿import { Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
 
 export const routes: Routes = [
@@ -17,8 +17,8 @@ export const routes: Routes = [
           import('./presensi/presensi.page').then((m) => m.PresensiPage), // Tab Presensi
       },
       {
-        path: 'tab3',
-        loadComponent: () => import('./tab3/tab3.page').then((m) => m.Tab3Page),
+        path: 'pengaturan',
+        loadComponent: () => import('./pengaturan/pengaturan.page').then((m) => m.PengaturanPage),
       },
       {
         path: '',
@@ -28,6 +28,7 @@ export const routes: Routes = [
     ],
   },
 ];
+
 
 
 

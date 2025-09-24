@@ -1,13 +1,13 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Tab3Page } from './tab3.page';
+import { PengaturanPage } from './pengaturan.page';
 
-describe('Tab3Page', () => {
-  let component: Tab3Page;
-  let fixture: ComponentFixture<Tab3Page>;
+describe('PengaturanPage', () => {
+  let component: PengaturanPage;
+  let fixture: ComponentFixture<PengaturanPage>;
 
   beforeEach(async () => {
-    fixture = TestBed.createComponent(Tab3Page);
+    fixture = TestBed.createComponent(PengaturanPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -16,3 +16,4 @@ describe('Tab3Page', () => {
     expect(component).toBeTruthy();
   });
 });
+
