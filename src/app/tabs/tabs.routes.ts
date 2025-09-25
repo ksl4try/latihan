@@ -9,7 +9,7 @@ export const routes: Routes = [
       {
         path: 'dashboard',
         loadComponent: () =>
-          import('./dashboard/dashboard.page').then((m) => m.DashboardPage),
+          import('./Dashboard/dashboard.page').then((m) => m.DashboardPage),
       },
       {
         path: 'presensi',
